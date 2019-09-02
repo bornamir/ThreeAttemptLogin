@@ -38,6 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
+    'axes',
+]
+
+AUTHENTICATION_BACKENDS = [
+    'axes.backends.AxesBackend',
+    'django.contrib.auth.backends.ModelBackend',
+
 ]
 
 MIDDLEWARE = [
@@ -48,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'axes.middleware.AxesMiddleware',
 ]
 
 ROOT_URLCONF = 'ThreeLogin.urls'
@@ -128,3 +136,12 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
+
+# Configurign Axes settings:
+
+AXES_FAILURE_LIMIT = 3  # The defult value is also 3, just for emphesising.
+AXES_COOLOFF_TIME = 1 # 1 Hour of lockout
+AXES_LOCKOUT_TEMPLATE = 'lockout.html'
+AXES_RESET_ON_SUCCESS = True
+AXES_ENABLED = True
+AXES_LOCK_OUT_BY_COMBINATION_USER_AND_IP = True

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<section id="login" class="bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card">
+            <div class="card-header bg-primary text-white">
+              <h4> Exceed login attempts!</h4>
+            </div>
+            <div class="card-body">
+                    {% include '_alert.html' %}
+                You have tried more than {{ failure_limit }} times to login. <br>
+                You can try again after {{ cooloff_time }} minutes.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% endblock %}
