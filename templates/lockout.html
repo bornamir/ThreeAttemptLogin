@@ -6,17 +6,25 @@
         <div class="col-md-6 mx-auto">
           <div class="card">
             <div class="card-header bg-primary text-white">
-              <h4> Exceed login attempts!</h4>
+              <h4> Exceed allowed login attempts!</h4>
             </div>
             <div class="card-body">
-                    {% include '_alert.html' %}
                 You have tried more than {{ failure_limit }} times to login. <br>
-                You can try again after {{ cooloff_time }} minutes.
+                You can try again after {{ cooloff_time }}our.
+            </div>
+            <div class="card-body">
+                    <form action=" {% url 'login' %}" method="GET">
+                      <input type="submit" value="Login" class="btn btn-secondary btn-block">
+                    </form>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- for clearing messages -->
+  {% for message in messages %}
+  {% endfor %}
 
   {% endblock %}

@@ -60,3 +60,16 @@ def inside(req):
         return redirect('login')
 
 
+def recover(req):
+    if req.method == 'POST':
+        username = req.POST['username']
+        password = ''
+        # using this password a fail login will happen and Axes app will be notify.
+        user = auth.authenticate(request=req,username = username ,password = password)
+        #####
+        # Rest of the implmentation for recovering via SMS.
+        #####
+        messages.success(req, 'Your Code will be sent.')
+        return redirect('login')
+    else:
+        return render(req, 'accounts/recover.html')

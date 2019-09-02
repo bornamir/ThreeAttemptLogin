@@ -7,11 +7,10 @@
         <div class="col-md-6 mx-auto">
           <div class="card">
             <div class="card-header bg-primary text-white">
-              <h4> Login</h4>
+              <h4> Recover via SMS</h4>
             </div>
             <div class="card-body">
-                {% include '_alert.html' %}
-              <form action=" {% url 'login' %}" method="POST">
+              <form action=" {% url 'recover' %}" method="POST">
                   {% csrf_token %}
                 <div class="form-group">
                   <label for="username">Username</label>
@@ -19,11 +18,11 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="password2">Password</label>
-                  <input type="password" name="password" class="form-control" required>
+                  <label for="number">Phone Number</label>
+                  <input type="text" name="number" class="form-control" required>
                 </div>
 
-                <input type="submit" value="Login" class="btn btn-secondary btn-block">
+                <input type="submit" value="Send varification code" class="btn btn-secondary btn-block">
               </form>
             </div>
             <div class="card-body">
@@ -33,9 +32,9 @@
               </form>
             </div>
             <div class="card-body">
-                Forget password? 
-                <form action=" {% url 'recover' %}" method="GET">
-                  <input type="submit" value="Recover with SMS" class="btn btn-secondary btn-block">
+                Rememberd your password?
+                <form action=" {% url 'login' %}" method="GET">
+                  <input type="submit" value="Login" class="btn btn-secondary btn-block">
                 </form>
               </div>
           </div>
