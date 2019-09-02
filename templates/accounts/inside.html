@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="login" class="bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card">
+            <div class="card-header bg-primary text-white">
+              <h4> Log Out</h4>
+            </div>
+            <div class="card-body">
+                {% include '_alert.html' %}
+              <form action=" {% url 'logout' %}" method="POST">
+                  {% csrf_token %}
+                    <p>You are logged in as <strong> {{ user.username}} </strong> . Now you can logout.</p>
+
+                <input type="submit" value="Log Out" class="btn btn-secondary btn-block">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% endblock %}
