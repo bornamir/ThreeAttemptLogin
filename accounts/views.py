@@ -52,7 +52,10 @@ def logout(req):
     return redirect('login')
 
 def inside(req):
-
-    return render(req, 'accounts/inside.html')
+    if req.user.is_authenticated:
+        return render(req, 'accounts/inside.html')
+    else:
+        messages.error(req, 'You must login first.')
+        return redirect('login')
 
 
