@@ -11,7 +11,9 @@ Backend is developed with django and python. Django default authentication syste
 
 Limiting login attempts is done with the help of [django-axes](https://pypi.org/project/django-axes/) app. The combination of username and IP address is used for defining a user attempt. 
 
-Since this is not a real world applicable project, the default database - sqlite3 - is used and the project is deployed in [http://bornamir.pythonanywhere.com](http://bornamir.pythonanywhere.com) . 
+ForntEnd codes ( html and css) are extracted from another project ( an on-line course on [Udemy](https://www.udemy.com/python-django-dev-to-deployment/) )
+
+Since this is not a real world applicable project, the default database - sqlite3 - is used and the project is deployed in [http://bornamir.pythonanywhere.com](http://bornamir.pythonanywhere.com) . 
 
 ## Getting Started
 
